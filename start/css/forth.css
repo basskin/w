@@ -1,0 +1,138 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+a{ 
+    text-decoration:none !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    display:block;
+    width:87px;
+    height:42px;
+    
+    
+}
+img{
+    -webkit-touch-callout: none;
+}
+.init,
+.game {
+    margin: 0 auto;
+    position: relative;
+}
+
+.init {
+    width:320px;
+    height:515px;
+    background-image: url(../img/forth/bg41.webp) ;
+    background-size: 320px 515px;
+}
+
+.start {
+
+    position: absolute;
+    width: 170px;
+    height: 404px;
+    left: 50px;
+    top: 90px;
+    background-image: url(../img/forth/bg43.webp) ;
+    background-size: 170px 404px;
+    opacity: 0;
+}
+
+.prompt{
+    position:absolute;
+    width:120px;
+    height:80px;
+    left:140px;
+    top:250px;
+    background-image:url(../img/forth/bg42.webp) ;
+    background-size:120px 80px;
+
+    
+}
+
+.game {
+    width:320px;
+    height:515px;
+    display: none;
+    background-image: url(../img/forth/bg44.webp) ;
+    background-size: 320px 515px;
+    overflow: hidden;
+}
+.girl{
+    width:120px;
+    height:240px;
+    position:absolute;
+    bottom:10px;
+    left:50%;
+}
+.fruit{
+    width:33px;
+    height:47px;
+    position:absolute;
+}
+.game-over{
+    display:none;
+    position:absolute;
+    width:288px;
+    height:253px;
+    left:10px;
+    top:100px;
+    background-image:url(../img/forth/bg48.webp) ;
+    background-size:288px 253px;
+
+}
+.repeat{
+    display:none;
+    position:absolute;
+    width:87px;
+    height:42px;
+    left:200px;
+    top:300px;
+    background-image:url(../img/forth/bg49.webp) ;
+    background-size:87px 42px;
+
+}
+.score{
+    position:absolute;
+    width:59px;
+    height:14px;
+    right:10px;
+    background-image:url(../img/forth/bg47.webp) ;
+    background-size:59px 14px;
+}
+.num{
+    position: absolute;
+    width:14px;
+    height:15px;
+    right:25px;
+    top:-3px;
+    background-color: #fcf9ec;
+}
+.finish{
+    display:none;
+    position:absolute;
+    width:288px;
+    height:253px;
+    left:10px;
+    top:100px;
+    background-image: url(../img/forth/bg410.webp) ;
+    background-size:288px 253px;
+}
+
+.next{
+    display:none;
+    position:absolute;
+    width:87px;
+    height:42px;
+    left:200px;
+    top:300px;
+    background-image:url(../img/forth/bg411.webp) ;
+    background-size:87px 42px;
+}

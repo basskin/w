@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,
+    initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="css/forth.css">
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="init">
+        <div class="start"></div>
+        <div class="prompt"></div>
+    </div>
+    <div class="game">
+        <img class="girl" src="img/forth/bg46.webp" />
+        <div class="game-over"></div>
+        <div class="repeat"><a href="forth.html"></a></div>
+        <div class="score"></div>
+        <div class="num">10</div>
+        <div class="finish"></div>
+        <div class="next"><a href="fifth.html"></a></div>
+    </div>
+</body>
+
+
+<script src="js/zepto.min.js"></script>
+<script>
+    var bodyW = $("body").width();
+    var bodyH = $("body").height();
+    var girlW = 140;
+    var girlH= 280;
+    var fruitW = 33;
+    var fruitH = 47;
+    var time = 0;
+    var control=0;
+    var enemys=[];
+    var t;
+    var x;
+    var speed = 1;
+    var score = 0;
+    var num=10;
+    var pic =document.querySelector(".girl");
+
+    //点击男孩开始游戏
+    $(".start").on("click", function () {
+        $(".init").css("display", "none");
+        $(".game").css("display", "block");
+        clearInterval(x);
+
+
+        $(".girl").on("touchstart", function (e) {
+            var disX = e.targetTouches[0].pageX - $(this).offset().left;
+            var disY = e.targetTouches[0].pageY - $(this).offset().top;
+            $(".girl").on("touchmove", function (e) {
+                var pLeft = e.targetTouches[0].pageX - disX;
+                var pTop = e.targetTouches[0].pageY - disY;
+                pLeft = pLeft <= 0 ? 0 : pLeft;
+                pLeft = pLeft >= (315-girlW)?  (315-girlW) : pLeft;
+                $(this).css({
+                    left: pLeft
+
+                })
+            })
+            $(".girl").on("touchend ", function () {
+                $(".girl").off('touchstart', 'touchmove');
+            })
+            e.stopPropagation();
+        })
+        var girl = document.querySelector('.girl');
+        girl.addEventListener('mousedown',function(e){
+            var s = e.pageX -girl.offsetLeft;
+            var d = e.pageY -girl.offserTop;
+            document.addEventListener('mousemove',move)
+            function move(e){
+                girl.style.left=e.pageX-s+'px';
+            }
+            document.addEventListener('mouseup',function(){
+                document.removeEventListener('mousemove',move);
+            })
+        })
+        
+
+
+        function Fruit(src,_w,_h,hp,speed,score) {
+            this.src = src;
+            this.w = _w;
+            this.h = _h;
+            this.hp = hp;
+            this.speed = speed;
+            this.score = score;
+            this.$enemy=$("<img class='fruit' src='"+this.src+"'>");
+            this.$enemy.css({
+                position:"absolute",
+                left:~~(Math.random()*(315-this.w)),
+                top:-this.h  //图片高度负值
+            });
+            $(".game").append(this.$enemy);
+            this.move=function(){
+                this.$enemy.css({
+                    top:this.$enemy.offset().top+this.speed,
+                    width:33,
+                    height:47
+
+                })
+            }
+        }
+
+        t=setInterval(function(){
+            control++;
+            if(control%50==0){
+                enemys.push(new Fruit("img/forth/bg45.webp",fruitW,fruitH,1,5*speed,1));
+            }
+            for(var i=0;i<enemys.length;i++){
+                enemys[i].move();
+                
+                if(enemys[i].$enemy.offset().top>515){
+                    enemys[i].$enemy.remove();
+                    clearInterval(t);
+                    $(".game-over").css("display","block")
+                    $(".repeat").css("display","block")
+                    $(".fruit").css("display","none")
+                    enemys.splice(i,1)
+                }
+            }
+
+            for(var k=0;k<enemys.length;k++){
+                var eLeft=enemys[k].$enemy.offset().left;
+                var eTop=enemys[k].$enemy.offset().top;
+                var eW=enemys[k].w;
+                var eH=enemys[k].h;
+                var pLeft = $(".girl").offset().left;
+                var pTop = $(".girl").offset().top;
+                if(eLeft>=(pLeft-eW)&&eLeft<=(pLeft+girlW)&&eTop>=(pTop-eH+100)&&eTop<=(pTop+girlH)){
+                    console.log("接住")
+                    num--;
+                    console.log(num);
+                    $(".num").text(num);
+                    
+
+                    //clearInterval(t);
+                    //$(".game-over").css("display","block")
+                    //$(".repeat").css("display","block")
+                    enemys[k].hp--;
+                    if(enemys[k].hp==0){
+                        score+=enemys[k].score;
+                        enemys[k].$enemy.remove();
+                    }
+
+                }
+            }
+
+            if(score>4) speed=2;
+            if(score>7) speed=3;
+            if(score>=10) {
+                clearInterval(t);
+                $(".finish").css("display","block")
+                $(".next").css("display","block")
+            }
+
+            control = control>=500?0:control;
+        },30);
+
+    })
+
+    x=setInterval(function () {
+
+
+        if (time > 30) {
+            $(".start").css("opacity", 1);
+        } else {
+            $(".start").css("opacity", 0);
+        }
+        time = time >= 60 ? 0 : time + 1;
+
+    }, 30);
+
+
+</script>
+
+</html>

@@ -1,0 +1,109 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+a{ 
+    text-decoration:none !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    display:block;
+    width:87px;
+    height:42px;
+    
+    
+}
+img{
+    -webkit-touch-callout: none;
+}
+
+.init {
+    margin: 0 auto;
+    height: 100%;
+    position: relative;
+    width:320px;
+    height:515px;
+    background-image: url(../img/album/bg61.webp) ;
+    background-size: 320px 515px;
+}
+.album{
+    position:absolute;
+    width:276px;
+    height:299px;
+    left:25px;
+    top:80px;
+    background-image: url(../img/album/bg62.webp);
+    background-size: 276px 299px;
+}
+
+.next{
+    position:absolute;
+    width:83px;
+    height:36px;
+    left:200px;
+    top:360px;
+    background-image: url(../img/album/bg63.webp);
+    background-size: 83px 36px;
+}
+
+.pt1{
+    position:absolute;
+    width:72px;
+    height:88px;
+    left:50px;
+    top:150px;
+    background-image: url(../img/album/bg65.webp);
+    background-size: 72px 88px;
+}
+.pt2{
+    position:absolute;
+    width:72px;
+    height:88px;
+    left:130px;
+    top:150px;
+    background-image: url(../img/album/bg66.webp);
+    background-size: 72px 88px;
+}
+
+.pt3{
+    position:absolute;
+    width:72px;
+    height:88px;
+    left:210px;
+    top:150px;
+    background-image: url(../img/album/bg67.webp);
+    background-size: 72px 88px;
+}
+
+.pt4{
+    position:absolute;
+    width:72px;
+    height:88px;
+    left:50px;
+    top:250px;
+    background-image: url(../img/album/bg68.webp);
+    background-size:72px 88px;
+}
+.pt5{
+    position:absolute;
+    width:72px;
+    height:88px;
+    left:130px;
+    top:250px;
+    background-image: url(../img/album/bg69.webp);
+    background-size: 72px 88px;
+}
+.red{
+    display:none;
+    position:absolute;
+    width:87px;
+    height:104px;
+    left:40px;
+    top:145px;
+    background-image: url(../img/album/bg64.webp);
+    background-size: 87px 104px;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,
+    initial-scale=1.0,maximum-scale=1.0,minmum-scale=1.0">
+
+    <link rel="stylesheet" href="css/index.css"> 
+    <title>Document</title>
+</head>
+<body>
+    <div class="init">
+        <div class="start"></div>
+    </div>
+    <div class="letter"></div>
+    <div class="paper"></div>
+    <div class="game">
+        <div class="camera"><a href="forth.html"></a></div>
+        <div class="album"><a href="album.html"></a></div>
+    </div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script>
+    $(".start").on("click",function(){
+        $(".init").css("display","none");
+        $(".letter").css("display","block");
+    })
+    $(".letter").on("click",function(){
+        $(".letter").css("display","none");
+        $(".paper").css("display","block");
+    })
+    $(".paper").on("click",function(){
+        $(".paper").css("display","none");
+        $(".game").css("display","block");
+    })
+</script>
+</html>

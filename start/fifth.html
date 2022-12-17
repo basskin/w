@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no,
+    initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+    <link rel="stylesheet" href="css/fifth.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="init">
+        <div class="prompt"></div>
+    </div>
+    <div class="game">
+        <img class="boy" src="img/fifth/bg53.webp" />
+        <img class="progress" src="img/fifth/bg57.webp" />
+        <img class="pro" src="img/fifth/bg56.webp" />
+        <div class="game-over"></div>
+        <div class="finish"></div>
+        <div class="repeat"><a href="fifth.html"></a></div>
+        <div class="next"><a href="album.html"></a></div>
+    </div>
+</body>
+
+<script src="js/zepto.min.js"></script>
+<script>
+    var t;
+    var num = 0;
+    $(".prompt").on("click", function () {
+        $(".init").css("display", "none");
+        $(".game").css("display", "block");
+        // $(".finish").css("display", "block");
+        //$(".next").css("display", "block");
+        //$(".game-over").css("display", "block");
+        //$(".repeat").css("display", "block");
+       t= setInterval(function () {
+
+            $(".pro").css("height", num);
+            num = num >= 251 ? 0 : num + 1;
+            console.log(num);
+            if (num >= 240) {
+                $(".boy").on("click", function () {
+                    $(".boy").css("bottom", 120);
+                    clearInterval(t);
+                    $(".finish").css("display", "block");
+                    $(".next").css("display", "block");
+                }
+                )
+            }else{
+                $(".boy").on("click",function(){
+                    $(".boy").css("bottom",70);
+                    clearInterval(t);
+                    $(".game-over").css("display","block");
+                    $(".repeat").css("display","block");
+                })
+            }
+        }, 10)
+    })
+</script>
+
+</html>

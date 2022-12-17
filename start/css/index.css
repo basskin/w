@@ -1,0 +1,91 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+a{ 
+    text-decoration:none !important;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    display:block;
+    width:87px;
+    height:42px;
+    
+    
+}
+img{
+    -webkit-touch-callout: none;
+}
+.init,
+.game {
+    margin: 0 auto;
+    position: relative;
+}
+
+.init {
+    width:320px;
+    height:515px;
+    background-image: url(../img/first/bg7.webp);
+    background-size: 320px 515px;
+}
+
+.start{
+    position:absolute;
+    width:69px;
+    height:17px;
+    background-image: url(../img/first/bg1.webp);
+    background-size: 69px 17px;
+    left:120px;
+    top:330px;
+}
+
+.letter{
+    margin: 0 auto;
+    width:320px;
+    height:515px;
+    display: none;
+    background-image: url(../img/first/bg3.webp);
+    background-size: 320px 515px;
+    overflow: hidden;
+}
+
+.paper{
+    margin: 0 auto;
+    width:320px;
+    height:515px;
+    display: none;
+    background-image: url(../img/first/bg4.webp);
+    background-size: 320px 515px;
+    overflow: hidden;
+}
+
+.game{
+    width:320px;
+    height:515px;
+    display: none;
+    background-image: url(../img/first/bg5.webp);
+    background-size: 100% 100%;
+    overflow: hidden;
+}
+.camera{
+    width:71px;
+    height:49px;
+    position:absolute;
+    background-image: url(../img/first/bg2.webp);
+    background-size:71px 49px;
+    top:80px;
+    left:130px;
+}
+.album{
+    width:45px;
+    height:105px;
+    position:absolute;
+    background-image: url(../img/first/bg6.webp);
+    background-size: 45px 105px;
+    top:400px;
+    left:20px;
+}
